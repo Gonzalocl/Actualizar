@@ -45,7 +45,7 @@ function montar {
 	enlace=$(echo $linea | cut -d ' ' -f 2)
 	carpeta=$(echo $linea | cut -d ' ' -f 1)
 	echo -e "\n\e[1;32mMontando \e[1;34m$MONTAJE/$carpeta\e[0m\n"
-	if ! echo $PASS | sudo mount -t davfs $(echo $enlace | tr '\r' ' ') $MONTAJE/$carpeta -o username=$USER > /dev/null
+	if ! echo $PASS | sudo mount -t davfs $(echo $enlace | tr '\r' ' ') $MONTAJE/$carpeta -o username=$UM_USER > /dev/null
 	then
 		echo -e "\e[1;31mFallo al montar\e[0m\n"
 	fi
@@ -63,10 +63,10 @@ carpeta=$(echo $linea | cut -d ' ' -f 1)
 falla=true
 while $falla
 do
-	echo -ne "\e[1;32mIntroducir contraseña para \e[1;34m$USER\e[1;32m\nContraseña:"
+	echo -ne "\e[1;32mIntroducir contraseña para \e[1;34m$UM_USER\e[1;32m\nContraseña:"
 	read -s PASS
 	echo -e "\n\e[1;32mMontando \e[1;34m$MONTAJE/$carpeta\e[0m\n"
-	if ! echo $PASS | sudo mount -t davfs $(echo $enlace | tr '\r' ' ') $MONTAJE/$carpeta -o username=$USER > /dev/null
+	if ! echo $PASS | sudo mount -t davfs $(echo $enlace | tr '\r' ' ') $MONTAJE/$carpeta -o username=$UM_USER > /dev/null
 	then
 		echo -e "\e[0m\e[1;31mContraseña incorrecta"
 	else

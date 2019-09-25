@@ -26,7 +26,12 @@ ORIGEN=$1
 
 
 # Montar las carpetas
-USER=
+if [[ $# -eq 2 ]]; then
+  UM_USER=$2
+else
+  echo -ne "\e[1;32memail:\e[0m"
+  read UM_USER
+fi
 MONTAJE=$(mktemp -d -p .)
 CARPETAS=$(cat $ORIGEN | tr '\t' ' ' | tr -s ' ' | cut -d ' ' -f 1)
 ( cd $MONTAJE; mkdir $CARPETAS )

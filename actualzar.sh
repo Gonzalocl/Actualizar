@@ -8,7 +8,7 @@
 PATH=$PATH:/sbin
 
 
-! command -v dirdiff > /dev/null && echo -e "\e[1;31mNo se encontro el comando dirdiff\e[0m" 1>&2 && exit 3
+! command -v ./comparar.sh > /dev/null && echo -e "\e[1;31mNo se encontro el script comparar.sh\e[0m" 1>&2 && exit 3
 ! mount.davfs -V > /dev/null && echo -e "\e[1;31mNo esta instalo WebDAV \n\tsudo apt-get install davfs2\e[0m" 1>&2 && exit 2
 ! test -f "$1" && echo -e "\e[1;31mArgumento incorrecto, deben ser un archivo con urls\e[0m" 1>&2 && exit 1
 ! sudo echo -n && echo -e "\e[1;31mSe necesitan permisos de super usuario para poder montar los sistemas de ficheros\e[0m" && exit 4
@@ -146,7 +146,7 @@ do
 	then
 		mkdir -p $c/Recursos
 	fi
-	dirdiff $TEMP/$c $c/Recursos > /dev/null
+	./comparar.sh $TEMP/$c $c/Recursos > /dev/null
 	
 #	if [ $rep = no -a \( -f solo1 -o -f solo2 \) ]
 #	then

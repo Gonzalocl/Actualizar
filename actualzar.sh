@@ -1,6 +1,7 @@
 #!/bin/bash
 
-#Gonzalo Caparros Laiz
+# Gonzalo Caparros Laiz
+# gonzalo.caparrosl@um.es
 
 # Actualiza lo que hay indicado en el archivo Recursoso.txt con el formato
 # $carpeta\t$enlace

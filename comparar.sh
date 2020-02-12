@@ -1,9 +1,10 @@
 #!/bin/bash
 
-#Gonzalo Caparros Laiz
+# Gonzalo Caparros Laiz
+# gonzalo.caparrosl@um.es
 
 
-# comparar archovos de dos directorios
+# comparar archivos de dos directorios
 
 if [ ! -d "$1" -o ! -d "$2" ]
 then
